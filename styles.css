@@ -1,0 +1,28 @@
+html, body{
+    height: 100%;
+}
+
+body{
+    margin: 0;  
+    font-family: Consolas, 'Andale Mono';  
+}
+
+.full-height{
+    height: 100%;
+}
+
+.flex-container{
+    display: flex;    
+}
+
+.flex-container .center-screen{
+    margin: auto;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.margin-auto {
+    margin: auto;
+}
