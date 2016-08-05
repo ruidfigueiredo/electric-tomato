@@ -1,18 +1,15 @@
-var Timer = require('easytimer');
+var electron = require('electron');
+var app = electron.app;
+var BrowserWindow = electron.BrowserWindow;
 
-var timer = new Timer();
+var mainWindow = null;
 
-timer.start({
-        precision: 'seconds',
-        startValues: {minutes: 1, seconds: 0},
-        target: {minutes: 0, seconds: 0},
-        countdown: true
+app.on('ready', function(){
+    mainWindow = new BrowserWindow({
+        width: 320,
+        height: 240,
+        resizable: false
     });
 
-timer.addEventListener('secondsUpdated', function(e){
-    console.log(timer.getTimeValues().minutes + '-' + timer.getTimeValues().seconds);
-});
-
-timer.addEventListener('targetAchieved', function(e){
-    console.log("END");
-});
+    mainWindow.loadURL('file:///' + __dirname + '/index.html');
+})
