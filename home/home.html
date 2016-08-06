@@ -1,10 +1,16 @@
 <div class="full-height flex-container">
     <div class="center-screen">        
         <div class="flex-container flex-direction-column">
-            <h1>{{vm.time}}</h1>
+            <h1 style="-webkit-app-region: drag">{{vm.time}}</h1>            
             <div class="margin-auto">
                 <button ng-click="vm.start()" ng-if="vm.state == vm.timerStates.stopped">Start</button>
                 <button ng-click="vm.stop()" ng-if="vm.state == vm.timerStates.running">Stop</button>
+                <div ng-if="vm.state === vm.timerStates.onBreak">
+                    <h2>On Break</h2>
+                </div>
+                <div>
+                    <button ng-click="vm.toggleMiniTimer()">Mini</button>
+                </div>
             </div>
         </div>        
     </div>
