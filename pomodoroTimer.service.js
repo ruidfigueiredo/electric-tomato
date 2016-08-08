@@ -1,4 +1,4 @@
-function PomodoroTimerService(){
+function PomodoroTimerService($rootScope){
     var timer = null;   
 
     function setupNewTimer(startValues, onTick){
@@ -9,11 +9,13 @@ function PomodoroTimerService(){
             target: {minutes: 0, seconds: 0},
             countdown: true
         });        
-        timer.addEventListener('secondsUpdated', function(){            
-            onTick({
-                minutes: timer.getTimeValues().minutes,
-                seconds: timer.getTimeValues().seconds
-            });
+        timer.addEventListener('secondsUpdated', function(){                       
+            $rootScope.$apply(function(){
+                onTick({
+                    minutes: timer.getTimeValues().minutes,
+                    seconds: timer.getTimeValues().seconds
+                });
+            });            
         });
     }
 
@@ -23,7 +25,9 @@ function PomodoroTimerService(){
 
     this.onDone = function(onDone){
         timer.addEventListener('targetAchieved', function(){
-            onDone();
+            $rootScope.$apply(function(){
+                onDone();
+            });            
         });
     };
 
@@ -38,4 +42,4 @@ function PomodoroTimerService(){
 
 angular
     .module('electricTomato')
-    .service('pomodoroTimerService', PomodoroTimerService)
+    .service('pomodoroTimerService', ['$rootScope', PomodoroTimerService])

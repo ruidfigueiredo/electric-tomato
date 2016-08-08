@@ -15,16 +15,16 @@ angular
 
         vm.time = '25:00';
 
-        function onTick(time) {
-            $scope.$apply(function () {                    
-                vm.time = time.minutes + ':' + time.seconds;
+        function onTick(time) {                                
+            vm.time = time.minutes + ':' + time.seconds;
+            ipc.send('tick', {
+                time: time,
+                isBreak: vm.state == vm.timerStates.onBreak
             });
         }
 
-        function startBreak(){
-            $scope.$apply(function(){
-              vm.state = vm.timerStates.onBreak;  
-            });            
+        function startBreak(){            
+            vm.state = vm.timerStates.onBreak;                          
             timer.startBreak(onTick); 
         }
 

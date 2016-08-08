@@ -19,17 +19,23 @@ app.on('ready', function () {
     ipc.on('miniWindowOpen', function () {
         if (miniWindow == null) {
             miniWindow = new BrowserWindow({
-                width: 200,
-                height: 200,
+                width: 70,
+                height: 70,
                 resizable: false,
                 alwaysOnTop: true,
                 frame: false            
             });
 
-            miniWindow.loadURL('file:///' + __dirname + '/index.html');
+            miniWindow.loadURL('file:///' + __dirname + '/miniTimer/index.html');
         } else {
             miniWindow.close();
             miniWindow = null;
         }
+    });
+
+    ipc.on('tick', function(event, status){        
+        if (miniWindow !== null){
+            miniWindow.webContents.send('tick', status);
+        }            
     });
 })
