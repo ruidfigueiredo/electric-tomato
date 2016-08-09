@@ -4,7 +4,7 @@
             <h1 style="-webkit-app-region: drag">{{vm.time}}</h1>            
             <div class="margin-auto">
                 <button ng-click="vm.start()" ng-if="vm.state == vm.timerStates.stopped">Start</button>
-                <button ng-click="vm.stop()" ng-if="vm.state == vm.timerStates.running">Stop</button>
+                <button ng-click="vm.stop()" ng-if="vm.state !== vm.timerStates.stopped">Stop</button>
                 <div ng-if="vm.state === vm.timerStates.onBreak">
                     <h2>On Break</h2>
                 </div>

@@ -19,6 +19,7 @@
 <body ng-controller="miniTimerController as vm" style="-webkit-app-region: drag">
   <div class="full-height flex-container">
     <div class="center-screen">
+      <a class="close" ng-click="vm.close()">&times;</a>      
       <h4>{{vm.time}}</h4>
       <span ng-if="vm.isBreak">Break</span>
     </div>

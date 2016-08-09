@@ -41,6 +41,6 @@ angular
         };
 
         this.toggleMiniTimer = function(){
-            ipc.send('miniWindowOpen');
+            ipc.send('openMiniTimer');
         };
     }]);

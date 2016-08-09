@@ -7,6 +7,10 @@ function MiniTimerController(ipc) {
         vm.time = status.time.minutes + ":" + status.time.seconds;
         vm.isBreak = status.isBreak;
     });
+
+    vm.close = function(){
+        ipc.send('closeMiniTimer');
+    }; 
 }
 
 MiniTimerController.$inject = ['ipcService'];
