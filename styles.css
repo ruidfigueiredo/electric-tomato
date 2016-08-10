@@ -1,35 +1,40 @@
-html, body{
-    height: 100%;
-}
+html, body {
+  height: 100%; }
 
-body{
-    margin: 0;  
-    font-family: Consolas, 'Andale Mono';  
-}
+body {
+  margin: 0;
+  background-color: #202020;
+  color: #f4f8ff;
+  font-family: Consolas, 'Andale Mono', monospace; }
 
-.full-height{
-    height: 100%;
-}
+.full-height {
+  height: 100%; }
 
-.flex-container{
-    display: flex;    
-}
+.bordered {
+  border: 1px solid #2e4272; }
 
-.flex-container .center-screen{
-    margin: auto;
-}
+.flex-container {
+  display: flex; }
+  .flex-container .center-screen {
+    margin: auto; }
 
 .flex-direction-column {
-    flex-direction: column;
-}
+  flex-direction: column; }
 
 .margin-auto {
-    margin: auto;
-}
+  margin: auto; }
 
 .close {
-    font-size: 0.9em;
-    float: right;
-    -webkit-app-region: no-drag;
-    cursor: pointer;
-}
+  font-size: 0.9em;
+  float: right;
+  -webkit-app-region: no-drag;
+  cursor: pointer; }
+
+.border-box {
+  box-sizing: border-box; }
+
+.relative {
+  position: relative; }
+
+.absolute {
+  position: absolute; }
