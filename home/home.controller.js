@@ -31,24 +31,8 @@ angular
             });
         }
 
-        function testProgressRing(){
-            var bar = new ProgressBar.Circle('#progress', {
-                strokeWidth: 6,
-                easing: 'easeInOut',
-                duration: 1400,
-                color: '#FFEA82',
-                trailColor: '#eee',
-                trailWidth: 1,
-                svgStyle: null
-            });
-
-            setTimeout(function () {
-                bar.animate(1.0);
-            }, 2000);
-        }
-
+        
         this.start = function () {
-            testProgressRing();
             vm.state = vm.timerStates.running;
             timer.start(onTick);
             timer.onDone(startBreak);
