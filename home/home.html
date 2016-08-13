@@ -1,7 +1,9 @@
 <div class="full-height flex-container">
     <div class="center-screen">
         <div class="flex-container flex-direction-column">
-            <my-progress-ring time="vm.time"></my-progress-ring>        
+            <my-progress-ring width="200px" height="200px" percentage="vm.percentage">
+                <span>{{vm.time}}</span>                    
+            </my-progress-ring>        
             <h1>{{vm.time}}</h1>
             <div class="margin-auto">                
                 <button ng-click="vm.start()" ng-if="vm.state == vm.timerStates.stopped">Start</button>

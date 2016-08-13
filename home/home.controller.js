@@ -15,7 +15,13 @@ angular
 
         vm.time = '25:00';
 
+        vm.percentage = 0.0;
+
         function onTick(time) {
+            var elapsedSeconds = (25 * 60) - (time.minutes*60 + time.seconds);
+            var totalSeconds = 25*60;
+            console.log("Elapsed seconds: " + elapsedSeconds);
+            vm.percentage = elapsedSeconds / totalSeconds;             
             vm.time = time.minutes + ':' + time.seconds;
             ipc.send('tick', {
                 time: time,
@@ -32,7 +38,7 @@ angular
         }
 
         
-        this.start = function () {
+        this.start = function () {            
             vm.state = vm.timerStates.running;
             timer.start(onTick);
             timer.onDone(startBreak);
