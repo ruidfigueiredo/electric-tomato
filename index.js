@@ -9,9 +9,10 @@ var miniTimerWindow = null;
 
 app.on('ready', function () {
     mainWindow = new BrowserWindow({
-        width: 640,
-        height: 480,
-        resizable: true
+        width: 230,
+        height: 320,
+        resizable: false,
+        frame: false
     });
 
     mainWindow.loadURL('file:///' + __dirname + '/index.html');
@@ -34,6 +35,14 @@ app.on('ready', function () {
                 miniTimerWindow = null;
             });
         }
+    });
+
+    ipc.on('close', function(){
+        mainWindow.close();
+    });
+
+    ipc.on('minimize', function(){
+        mainWindow.minimize();
     });
 
     ipc.on('closeMiniTimer', function(event){

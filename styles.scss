@@ -38,7 +38,7 @@ body{
     margin: 0;
     background-color: $background;
     color: $text-color;      
-    font-family: Consolas, 'Andale Mono', monospace;      
+    font-family: 'Open Sans Condensed', sans-serif;      
 }
 
 .full-height{
@@ -82,4 +82,24 @@ body{
 
 .absolute {
     position: absolute;
+}
+
+i.fa {
+    font-size: 1.5em;
+}
+
+.margin-top-sm{
+    margin-top: 10px;
+}
+
+.margin-top-md {
+    margin-top: 25px;
+}
+
+.margin-top-lg {
+    margin-top: 50px;
+}
+
+.pull-right {
+    float: right;
 }

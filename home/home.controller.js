@@ -1,7 +1,7 @@
 //check https://kimmobrunfeldt.github.io/progressbar.js/
 angular
     .module('electricTomato')
-    .controller('HomeController', ['pomodoroTimerService', 'ipcService', '$scope', function (timer, ipc, $scope) {
+    .controller('HomeController', ['pomodoroTimerService', 'ipcService', function (timer, ipc) {
         this.timerStates = {
             running: "running",
             stopped: "stopped",
@@ -11,21 +11,21 @@ angular
 
         var vm = this;
 
-        vm.state = this.timerStates.stopped;
+        vm.state = vm.timerStates.stopped;
 
         vm.time = '25:00';
 
         vm.percentage = 0.0;
 
         function onTick(time) {
-            var elapsedSeconds = (25 * 60) - (time.minutes*60 + time.seconds);
-            var totalSeconds = 25*60;
-            console.log("Elapsed seconds: " + elapsedSeconds);
+            var totalSeconds = vm.state == vm.timerStates.running ? 25*60 : 5*60;        
+            var elapsedSeconds = totalSeconds - (time.minutes*60 + time.seconds);            
             vm.percentage = elapsedSeconds / totalSeconds;             
             vm.time = time.minutes + ':' + time.seconds;
             ipc.send('tick', {
                 time: time,
-                isBreak: vm.state == vm.timerStates.onBreak
+                isBreak: vm.state == vm.timerStates.onBreak,
+                percentage: vm.percentage
             });
         }
 
@@ -52,4 +52,12 @@ angular
         this.toggleMiniTimer = function () {
             ipc.send('openMiniTimer');
         };
+
+        this.close = function(){
+            ipc.send('close');
+        }
+
+        this.minimize = function(){
+            ipc.send('minimize');
+        }
     }]);

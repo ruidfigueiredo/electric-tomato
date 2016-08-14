@@ -5,7 +5,7 @@ body {
   margin: 0;
   background-color: #202020;
   color: #f4f8ff;
-  font-family: Consolas, 'Andale Mono', monospace; }
+  font-family: 'Open Sans Condensed', sans-serif; }
 
 .full-height {
   height: 100%; }
@@ -38,3 +38,18 @@ body {
 
 .absolute {
   position: absolute; }
+
+i.fa {
+  font-size: 1.5em; }
+
+.margin-top-sm {
+  margin-top: 10px; }
+
+.margin-top-md {
+  margin-top: 25px; }
+
+.margin-top-lg {
+  margin-top: 50px; }
+
+.pull-right {
+  float: right; }
