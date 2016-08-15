@@ -17,6 +17,8 @@ angular
 
         vm.percentage = 0.0;
 
+        vm.isAlwaysOnTop = false;
+        
         function onTick(time) {
             var totalSeconds = vm.state == vm.timerStates.running ? 25*60 : 5*60;        
             var elapsedSeconds = totalSeconds - (time.minutes*60 + time.seconds);            
@@ -55,9 +57,23 @@ angular
 
         this.close = function(){
             ipc.send('close');
-        }
+        };
 
         this.minimize = function(){
             ipc.send('minimize');
-        }
+        };
+
+        this.setAsAlwaysOnTop = function(){
+            console.log("setAsAlwaysOnTop");
+            var mainProcess = require('electron').remote;
+            mainProcess.getCurrentWindow().setAlwaysOnTop(true);
+            vm.isAlwaysOnTop = true;
+        };
+
+        this.setAsNotAlwaysOnTop = function(){
+            console.log("setAsNotAlwaysOnTop");            
+            var mainProcess = require('electron').remote;
+            mainProcess.getCurrentWindow().setAlwaysOnTop(false);
+            vm.isAlwaysOnTop = false;
+        };        
     }]);
