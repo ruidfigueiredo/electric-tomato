@@ -37,18 +37,6 @@ app.on('ready', function () {
         }
     });
 
-    ipc.on('close', function(){
-        mainWindow.close();
-    });
-
-    ipc.on('minimize', function(){
-        mainWindow.minimize();
-    });
-
-    ipc.on('closeMiniTimer', function(event){
-        miniTimerWindow.close();
-    });
-
     ipc.on('tick', function (event, status) {
         if (miniTimerWindow !== null) {
             miniTimerWindow.webContents.send('tick', status);
