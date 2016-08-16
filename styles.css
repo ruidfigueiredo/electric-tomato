@@ -53,3 +53,10 @@ i.fa {
 
 .pull-right {
   float: right; }
+
+.on-break {
+  background-color: #F4F8FF;
+  color: #071639; }
+
+i:active {
+  transform: translate(1px, 1px); }

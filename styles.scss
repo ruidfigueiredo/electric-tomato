@@ -103,3 +103,11 @@ i.fa {
 .pull-right {
     float: right;
 }
+.on-break {
+    background-color: $color-primary-1;
+    color: $color-primary-3;  
+}
+
+i:active{
+    transform: translate(1px, 1px);
+}
