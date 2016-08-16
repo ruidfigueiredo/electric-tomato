@@ -1,5 +1,6 @@
 function MiniTimerController(ipc) {
     var vm = this;
+    var currentWindow = require('electron').remote.getCurrentWindow();
     vm.time = "--:--";
     vm.isBreak = false;
 
@@ -8,9 +9,7 @@ function MiniTimerController(ipc) {
         vm.isBreak = status.isBreak;
     });
 
-    vm.close = function(){
-        ipc.send('closeMiniTimer');
-    }; 
+    vm.close = currentWindow.close; 
 }
 
 MiniTimerController.$inject = ['ipcService'];
@@ -18,5 +17,3 @@ MiniTimerController.$inject = ['ipcService'];
 angular
     .module('electricTomato')
     .controller("miniTimerController", MiniTimerController);
-
-//get time from source

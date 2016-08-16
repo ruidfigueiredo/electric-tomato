@@ -10,6 +10,8 @@ angular
 
         var vm = this;
 
+        var currentWindow = require('electron').remote.getCurrentWindow();
+
         vm.state = vm.timerStates.stopped;
 
         vm.time = '25:00';
@@ -65,24 +67,20 @@ angular
         };
 
         this.close = function () {
-            ipc.send('close');
+            currentWindow.close();
         };
 
         this.minimize = function () {
-            ipc.send('minimize');
+            currentWindow.minimize();
         };
 
         this.setAsAlwaysOnTop = function () {
-            console.log("setAsAlwaysOnTop");
-            var mainProcess = require('electron').remote;
-            mainProcess.getCurrentWindow().setAlwaysOnTop(true);
+            currentWindow.setAlwaysOnTop(true);
             vm.isAlwaysOnTop = true;
         };
 
         this.setAsNotAlwaysOnTop = function () {
-            console.log("setAsNotAlwaysOnTop");
-            var mainProcess = require('electron').remote;
-            mainProcess.getCurrentWindow().setAlwaysOnTop(false);
+            currentWindow.setAlwaysOnTop(false);            
             vm.isAlwaysOnTop = false;
         };
     }]);

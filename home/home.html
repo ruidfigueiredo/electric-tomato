@@ -1,26 +1,27 @@
 <div class="full-height flex-container" ng-class="{'on-break': vm.state === vm.timerStates.onBreak}">
-    <div style="position: absolute; top: 0; right: 100px; left: 0; -webkit-app-region:drag; height: 50px"></div>
-    <div style="position: absolute; top: 10px; right: 10px;">
-        <i class="fa fa-compress" aria-hidden="true" title="Open mini timer" ng-click="vm.toggleMiniTimer()" style="margin-right:10px;font-size: 0.8em;"></i>
-        <i class="fa fa-unlock" aria-hidden="true" ng-if="!vm.isAlwaysOnTop" ng-click="vm.setAsAlwaysOnTop()" style="margin-right:10px; font-size: 0.8em;"
-            title="Always on top: Off"></i>
-        <i class="fa fa-lock" aria-hidden="true" ng-if="vm.isAlwaysOnTop" ng-click="vm.setAsNotAlwaysOnTop()" style="margin-right:10px; font-size: 0.8em;"
-            title="Always on top: On"></i>
-        <i class="fa fa-minus" aria-hidden="true" ng-click="vm.minimize()" style="position:relative;bottom: -5px;margin-right:10px; font-size: 0.9em;"></i>
-        <i class="fa fa-times" aria-hidden="true" ng-click="vm.close()" style="font-size: 0.8em;"></i>                
+    <div class="absolute top left right drag">
+        <div class="pull-right margin-right-sm margin-top-sm font-size-sm">
+            <i class="fa fa-compress no-drag margin-right-md" aria-hidden="true" title="Open mini timer" ng-click="vm.toggleMiniTimer()"></i>
+            <i class="fa fa-unlock no-drag margin-right-md" aria-hidden="true" ng-if="!vm.isAlwaysOnTop" ng-click="vm.setAsAlwaysOnTop()"
+                title="Always on top: Off"></i>
+            <i class="fa fa-lock no-drag margin-right-md" aria-hidden="true" ng-if="vm.isAlwaysOnTop" ng-click="vm.setAsNotAlwaysOnTop()"
+                title="Always on top: On"></i>
+            <i class="fa fa-minus no-drag margin-right-md" aria-hidden="true" ng-click="vm.minimize()" style="position:relative;bottom: -5px;"></i>
+            <i class="fa fa-times no-drag margin-right-md" aria-hidden="true" ng-click="vm.close()"></i>
+        </div>
     </div>
 
-    <div style="position: absolute; bottom: 0px; left:5px" ng-if="vm.state === vm.timerStates.onBreak">
+    <div class="absolute bottom left margin-left-sm" ng-if="vm.state === vm.timerStates.onBreak">
         <h2>On Break</h2>
     </div>
 
     <div class="center-screen">
         <div class="flex-container flex-direction-column">
-            <my-progress-ring percentage="vm.percentage" style="width:200px; height:200px;margin:10px">
-                <h1 style="font-size: 50px">{{vm.time}}</h1>
+            <my-progress-ring percentage="vm.percentage" class="margin-sm block-lg">
+                <h1 class="font-size-xl">{{vm.time}}</h1>
             </my-progress-ring>
         </div>
-        <div class="margin-top-md" style="position:relative; text-align: center">
+        <div class="margin-top-lg text-center font-size-lg">
             <i class="fa fa-play" aria-hidden="true" ng-click="vm.start()" ng-if="vm.state == vm.timerStates.stopped" title="Start"></i>
             <i class="fa fa-stop" aria-hidden="true" ng-click="vm.stop()" ng-if="vm.state !== vm.timerStates.stopped" title="Stop"></i>
         </div>

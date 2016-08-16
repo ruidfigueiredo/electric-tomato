@@ -84,25 +84,91 @@ body{
     position: absolute;
 }
 
-i.fa {
-    font-size: 1.5em;
+.top {
+    top: 0;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.right{
+    right: 0;
+}
+
+.margin-sm{
+    margin: 5px;
+}
+
+.margin-md {
+    margin: 10px;
+}
+
+.margin-lg {
+    margin: 25px;
+}
+
+.margin-xl {
+    margin: 50px;
 }
 
 .margin-top-sm{
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .margin-top-md {
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .margin-top-lg {
+    margin-top: 25px;
+}
+
+.margin-top-xl {
     margin-top: 50px;
 }
+
+.margin-right-sm{
+    margin-right: 5px;
+}
+
+.margin-right-md {
+    margin-right: 10px;
+}
+
+.margin-right-lg {
+    margin-right: 25px;
+}
+
+.margin-right-xl {
+    margin-right: 50px;
+}
+
+.margin-left-sm{
+    margin-left: 5px;
+}
+
+.margin-left-md {
+    margin-left: 10px;
+}
+
+.margin-left-lg {
+    margin-left: 25px;
+}
+
+.margin-left-xl {
+    margin-left: 50px;
+}
+
 
 .pull-right {
     float: right;
 }
+
 .on-break {
     background-color: $color-primary-1;
     color: $color-primary-3;  
@@ -110,4 +176,35 @@ i.fa {
 
 i:active{
     transform: translate(1px, 1px);
+}
+
+.drag{
+    -webkit-app-region: drag;
+}
+
+.no-drag {
+    -webkit-app-region: no-drag;
+}
+
+.block-lg {
+    width: 200px;
+    height: 200px;
+}
+
+.font-size-sm {
+    font-size: 0.8em;
+}
+
+.font-size-lg {
+    font-size: 1.5em;
+}
+
+
+.font-size-xl{
+    font-size: 50px;
+}
+
+
+.text-center {
+    text-align: center;
 }
