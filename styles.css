@@ -130,3 +130,6 @@ i:active {
 
 .text-center {
   text-align: center; }
+
+.smooth-color-changes {
+  transition: background-color 1s linear, color 1s linear; }
