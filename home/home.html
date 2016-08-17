@@ -1,13 +1,13 @@
-<div class="full-height flex-container smooth-color-changes" ng-class="{'on-break': vm.state === vm.timerStates.onBreak}">
+<div class="full-height flex-container smooth-color-change" ng-class="{'on-break': vm.state === vm.timerStates.onBreak}">
     <div class="absolute top left right drag">
         <div class="pull-right margin-right-sm margin-top-sm font-size-sm">
-            <i class="fa fa-compress no-drag margin-right-md" aria-hidden="true" title="Open mini timer" ng-click="vm.toggleMiniTimer()"></i>
-            <i class="fa fa-unlock no-drag margin-right-md" aria-hidden="true" ng-if="!vm.isAlwaysOnTop" ng-click="vm.setAsAlwaysOnTop()"
+            <i class="fa fa-compress no-drag margin-right-md cursor-pointer" aria-hidden="true" title="Open mini timer" ng-click="vm.toggleMiniTimer()"></i>
+            <i class="fa fa-unlock no-drag margin-right-md cursor-pointer" aria-hidden="true" ng-if="!vm.isAlwaysOnTop" ng-click="vm.setAsAlwaysOnTop()"
                 title="Always on top: Off"></i>
-            <i class="fa fa-lock no-drag margin-right-md" aria-hidden="true" ng-if="vm.isAlwaysOnTop" ng-click="vm.setAsNotAlwaysOnTop()"
+            <i class="fa fa-lock no-drag margin-right-md cursor-pointer" aria-hidden="true" ng-if="vm.isAlwaysOnTop" ng-click="vm.setAsNotAlwaysOnTop()"
                 title="Always on top: On"></i>
-            <i class="fa fa-minus no-drag margin-right-md" aria-hidden="true" ng-click="vm.minimize()" style="position:relative;bottom: -5px;"></i>
-            <i class="fa fa-times no-drag margin-right-md" aria-hidden="true" ng-click="vm.close()"></i>
+            <i class="fa fa-minus no-drag margin-right-md cursor-pointer" aria-hidden="true" ng-click="vm.minimize()" style="position:relative;bottom: -5px;"></i>
+            <i class="fa fa-times no-drag margin-right-md cursor-pointer" aria-hidden="true" ng-click="vm.close()"></i>
         </div>
     </div>
 
@@ -22,8 +22,8 @@
             </my-progress-ring>
         </div>
         <div class="margin-top-lg text-center font-size-lg">
-            <i class="fa fa-play" aria-hidden="true" ng-click="vm.start()" ng-if="vm.state == vm.timerStates.stopped" title="Start"></i>
-            <i class="fa fa-stop" aria-hidden="true" ng-click="vm.stop()" ng-if="vm.state !== vm.timerStates.stopped" title="Stop"></i>
+            <i class="fa fa-play cursor-pointer" aria-hidden="true" ng-click="vm.start()" ng-if="vm.state == vm.timerStates.stopped" title="Start"></i>
+            <i class="fa fa-stop cursor-pointer" aria-hidden="true" ng-click="vm.stop()" ng-if="vm.state !== vm.timerStates.stopped" title="Stop"></i>
         </div>
     </div>
 </div>

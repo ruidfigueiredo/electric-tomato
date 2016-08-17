@@ -23,8 +23,8 @@ app.on('ready', function () {
     ipc.on('openMiniTimer', function () {
         if (miniTimerWindow == null) {
             miniTimerWindow = new BrowserWindow({
-                width: 70,
-                height: 70,
+                width: 90,
+                height: 65,
                 resizable: false,
                 alwaysOnTop: true,
                 frame: false

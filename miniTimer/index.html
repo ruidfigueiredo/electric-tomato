@@ -16,11 +16,13 @@
   <script src="mini-timer.controller.js"></script>
 </head>
 
-<body ng-controller="miniTimerController as vm" style="-webkit-app-region: drag">
-  <div class="full-height flex-container bordered border-box smooth-color-changes" ng-class="{'on-break': vm.isBreak}">
+<body ng-controller="miniTimerController as vm" class="drag">
+  <div class="absolute top right margin-sm">
+    <a class="no-drag cursor-pointer" ng-click="vm.close()">&times;</a>
+  </div>
+  <div class="full-height flex-container bordered border-box smooth-color-change" ng-class="{'on-break': vm.isBreak}">
     <div class="center-screen">
-      <a class="close" ng-click="vm.close()">&times;</a>      
-      <h4>{{vm.time}}</h4>      
+      <h4>{{vm.time}}</h4>
     </div>
   </div>
 </body>
