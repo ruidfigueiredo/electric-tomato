@@ -12,7 +12,8 @@ app.on('ready', function () {
         width: 230,
         height: 320,
         resizable: false,
-        frame: false
+        frame: false,
+        backgroundColor: "#202020"
     });
 
     mainWindow.loadURL('file:///' + __dirname + '/index.html');
@@ -27,7 +28,8 @@ app.on('ready', function () {
                 height: 65,
                 resizable: false,
                 alwaysOnTop: true,
-                frame: false
+                frame: false,
+                backgroundColor: "#202020"
             });
 
             miniTimerWindow.loadURL('file:///' + __dirname + '/miniTimer/index.html');
