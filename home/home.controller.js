@@ -39,8 +39,7 @@ angular
                 isBreak: true,
                 percentage: 0
             });
-            timer.startBreak(onTick);
-            timer.onDone(function () {
+            timer.startBreak(onTick, function () {
                 vm.state = vm.timerStates.stopped;
                 ipc.send('tick', {
                     time: timer.getTime(),
@@ -53,12 +52,11 @@ angular
 
         this.start = function () {
             vm.state = vm.timerStates.running;
-            timer.start(onTick);
-            timer.onDone(startBreak);
+            timer.start(onTick, startBreak);            
         };
 
         this.stop = function () {
-            timer.pause();
+            timer.stop();
             vm.state = vm.timerStates.stopped;
         };
 
