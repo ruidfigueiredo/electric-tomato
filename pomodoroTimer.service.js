@@ -4,13 +4,13 @@ function PomodoroTimerService($interval) {
     var startTime;
 
 
-    function getTime(){
+    function getRemainingTime(){
         var currentTime = new Date().getTime();
         var elapsedSeconds = Math.abs(Math.floor((currentTime - startTime) / 1000));
         var totalSecondsToWait = timeToWait - elapsedSeconds; 
         return {
-            minutes: Math.floor(totalSecondsToWait / 60),
-            seconds: totalSecondsToWait % 60
+            minutes: Math.max(0, Math.floor(totalSecondsToWait / 60)),
+            seconds: Math.max(0, totalSecondsToWait % 60)
         }
     }
 
@@ -23,7 +23,7 @@ function PomodoroTimerService($interval) {
         timeToWait = startValues.minutes * 60 + startValues.seconds;
         startTime = new Date().getTime();
         intervalPromise = $interval(function(){
-            onTick(getTime());
+            onTick(getRemainingTime());
             if (isDone()){
                 $interval.cancel(intervalPromise);
                 intervalPromise = null;
@@ -34,11 +34,11 @@ function PomodoroTimerService($interval) {
 
 
     function isDone(){
-        var elpasedTime = getTime();
-        return elpasedTime.minutes <= 0 && elpasedTime.seconds <= 0; //can't rely on interval being 1s, when the window is minimized browser might trigger it less often
+        var elpasedTime = getRemainingTime();
+        return elpasedTime.minutes == 0 && elpasedTime.seconds == 0; 
     }
 
-    this.getTime = getTime;
+    this.getRemainingTime = getRemainingTime;
 
     this.start = function (onTick, onDone) {
         setupNewTimer({ minutes: 25, seconds: 0 }, onTick, onDone);
