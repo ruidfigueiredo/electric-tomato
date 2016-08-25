@@ -35,14 +35,14 @@ angular
         function startBreak() {
             vm.state = vm.timerStates.onBreak;
             ipc.send('tick', {
-                time: timer.getTime(),
+                time: timer.getRemainingTime(),
                 isBreak: true,
                 percentage: 0
             });
             timer.startBreak(onTick, function () {
                 vm.state = vm.timerStates.stopped;
                 ipc.send('tick', {
-                    time: timer.getTime(),
+                    time: timer.getRemainingTime(),
                     isBreak: true,
                     percentage: 0
                 });
