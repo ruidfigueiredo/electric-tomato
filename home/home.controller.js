@@ -43,7 +43,7 @@ angular
                 vm.state = vm.timerStates.stopped;
                 ipc.send('tick', {
                     time: timer.getTime(),
-                    isBreak: false,
+                    isBreak: true,
                     percentage: 0
                 });
             });
