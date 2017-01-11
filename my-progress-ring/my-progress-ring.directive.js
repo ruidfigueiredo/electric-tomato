@@ -8,7 +8,7 @@ angular.module('electricTomato')
             },
             transclude: true,
             templateUrl: "my-progress-ring/my-progress-ring.html",
-            controller: ['$timeout', function ($timeout, $scope) {
+            controller: ['$timeout', '$scope', function ($timeout, $scope) {
                 var vm = this;
                 vm.progressHolderId = "progress_" + new Date().getTime();
                 var progressRing = null;
